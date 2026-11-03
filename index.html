@@ -17,6 +17,9 @@ html{scrollbar-gutter:stable}
 .card-section{margin:0 auto}.section-title{font-family:'Apple SD Gothic Neo',sans-serif;font-size:13px;font-weight:400;color:var(--gold);letter-spacing:2px;margin:0 0 22px}.section-title span{display:block;font-size:10px;letter-spacing:1px;color:var(--muted);margin-top:8px}.cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 18px;max-width:840px;margin:auto}.cards.fixed-cards{grid-template-columns:repeat(3,minmax(0,1fr));max-width:580px;gap:20px}.cards .card{aspect-ratio:.68}.cards .card-wrap{padding-top:0}.random-section{margin-top:45px;padding-top:33px;border-top:1px solid #d8bc8226}
 .spotlight .front{padding:calc(24 * var(--reading-unit)) calc(20 * var(--reading-unit))}.spotlight .front .symbol{font-size:calc(50 * var(--reading-unit));margin-bottom:calc(20 * var(--reading-unit))}.spotlight .front .english{font-size:calc(10 * var(--reading-unit));margin-bottom:calc(12 * var(--reading-unit));letter-spacing:calc(2 * var(--reading-unit))}.spotlight .front h2{font-size:calc(28 * var(--reading-unit));margin-bottom:calc(24 * var(--reading-unit))}.spotlight .front .message{font-size:calc(17 * var(--reading-unit));line-height:1.9}.spotlight .front .tiny{font-size:calc(18 * var(--reading-unit));margin-top:calc(24 * var(--reading-unit))}
 @media(max-width:480px){.cards{gap:18px 9px}.cards.fixed-cards{gap:12px}.number{font-size:9px;letter-spacing:1px}.section-title{font-size:12px}.random-section{margin-top:30px;padding-top:26px}}
+
+.back.photo{padding:0;background:#161321;display:flex;align-items:center;justify-content:center}.back.photo:before{z-index:1;inset:5px;pointer-events:none}.photo img{display:block;width:100%;height:100%;object-fit:contain}.message{white-space:pre-wrap}.reading-hint{font-family:'Apple SD Gothic Neo',sans-serif;font-size:10px;color:#917d65;margin-top:12px}.spotlight .card{transform-origin:top left}.spotlight .front .message{flex:0 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#b59b77 transparent;white-space:pre-wrap}.spotlight .letter-front{justify-content:flex-start;padding:28px 27px}.spotlight .letter-front .english{font-size:10px;flex-shrink:0;margin:3px 0 12px}.spotlight .letter-front h2{font-size:22px;flex-shrink:0;margin:0 0 20px}.spotlight .letter-front .message{font-size:15px;line-height:1.9;text-align:left;width:100%;word-break:normal;overflow-wrap:anywhere;padding:0 7px 8px 0}.spotlight .letter-front .tiny{font-size:15px;flex-shrink:0;margin:14px 0 0}.spotlight .letter-front .reading-hint{flex-shrink:0;margin:10px 0 0;font-size:10px}.spotlight .message:focus-visible{outline:1px solid #a98a59;outline-offset:3px}
+@media(max-width:480px){.spotlight .letter-front{padding:23px 20px}.spotlight .letter-front .message{font-size:14px}.spotlight .letter-front h2{margin-bottom:15px}}
 </style>
 </head>
 <body>
@@ -55,6 +58,8 @@ const messages = [
 {"title":"설렘","en":"A LITTLE WONDER","symbol":"✶","text":"기다려지는 순간 하나를\n오늘의 끝에 놓아보세요.\n아주 사소한 약속이어도\n하루를 반짝이게 할 수 있어요."}
 ];
 const ornament = '<svg viewBox="0 0 160 265" fill="none" aria-hidden="true"><rect x="7" y="7" width="146" height="251" rx="60" stroke="currentColor" opacity=".35"/><path d="M80 22L86 34L80 46L74 34Z M80 219L86 231L80 243L74 231Z" stroke="currentColor"/><circle cx="80" cy="132" r="43" stroke="currentColor" opacity=".55"/><circle cx="80" cy="132" r="54" stroke="currentColor" stroke-dasharray="1 7" opacity=".6"/><path d="M80 75V94M80 170V189M23 132H42M118 132H137M40 92L53 105M107 159L120 172M40 172L53 159M107 105L120 92" stroke="currentColor" opacity=".5"/><path d="M80 105L86 126L107 132L86 138L80 159L74 138L53 132L74 126Z" stroke="currentColor"/><circle cx="80" cy="132" r="9" stroke="currentColor"/><path d="M43 56L46 63L53 66L46 69L43 76L40 69L33 66L40 63Z M117 189L120 196L127 199L120 202L117 209L114 202L107 199L114 196Z" stroke="currentColor" opacity=".65"/><circle cx="118" cy="66" r="2" fill="currentColor"/><circle cx="42" cy="199" r="2" fill="currentColor"/></svg>';
+const fixedCards=[{"title":"첫 번째 편지","en":"HAPPY BIRTHDAY","symbol":"✦","text":"9월초에 알게 된 새벽이\n어느덧 두달이~\n\n송편 줍줍하면서 단톡방이 만들어지고 하루하루 굿모닝 인사하며 다같이 가까워졌지\n\n이거 저거 만들어주는걸 좋아하는 새벽\n그덕에 예쁜것들 받아보고 방송에 도움주고 감사링\n\n유산균생 제주막걸리 내생에 먹어볼수\n없었을 수도 있는데 덕분에 먹어보고\n기분이가 좋다 취한다 땡큐링\n\n방송 잘되길 바라고 남캠 가즈아\n그리구 건강 챙기고, 하고자하는 거\n다 잘되길 바랄께\n\n새벽이 생일 마니마니 축하해","image":"fixed-1.png","letter":true},{"title":"두 번째 편지","en":"HAPPY BIRTHDAY","symbol":"✦","text":"늘 건강하고, 네가 선택한 길에서 좋은 일들이 많이 생겼으면 좋겠다.\n다만 하나 걱정인 거는 뭐든 빠르게 빠르게 \n진행하니 앞으로 조금은 천천히 단단하게 \n진행했으면 좋겠어\n살다 보면 힘든 날도 있고, 생각대로 잘 풀리지 않을 때도 있겠지만\n그런 시간들도 지나고 나면 결국 웃으면서 이야기할 날이 오듯\n그러니까 너무 걱정하지 말고, 네가 하고 싶은 것들 하나씩 해나가면서\n지금처럼 네 삶 잘 만들어갔으면 좋겠다.\n언제나 너의 선택을 존중하며 지자가 되어볼게 생일축한다 ","image":"fixed-2.jpeg","letter":true},{"title":"세 번째 편지","en":"HAPPY BIRTHDAY","symbol":"✦","text":"아직은 말을 쉽게 하지 못하는 사이지만 어느덧 시간이 지났네요. \n새벽씨 생일 정말 축하해요! 말로는 다 표현할 수 없지만 새벽씨가 가는길을 늘 응원하고 있어요.\n하루하루 바빠 많은 이야기를 듣지 못하고 전하지 못했지만 언젠가는 또다시 깊은 이야기를 할 수 있길 빌어요. \n짧은 인연이 아닌 오래되어 편하고 믿을 수 있는 인연이 되길 바라요.\n다시한번 생일 축하합니다.","image":"fixed-3.jpeg","letter":true}];
+const memoryImages=["memory-01.png","memory-02.png","memory-03.png","memory-04.jpeg","memory-05.jpeg","memory-06.png","memory-07.jpeg","memory-08.jpeg","memory-09.jpeg"];
 const deck=document.getElementById('cards');
 const status=document.getElementById('status');
 function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -80,9 +85,9 @@ function finishClose(){
 function closeCard(){
   if(!activeCard||activeCard.closing)return;
   activeCard.closing=true;
-  const {floating}=activeCard;
+  const {floating,restTransform}=activeCard;
   floating.classList.remove('flipped');
-  floating.style.transform='translate(0px,0px) scale(1)';
+  floating.style.transform=restTransform;
   floating.setAttribute('aria-pressed','false');
   floating.addEventListener('transitionend',event=>{
     if(event.target===floating&&event.propertyName==='transform')finishClose();
@@ -90,55 +95,65 @@ function closeCard(){
   activeCard.timer=setTimeout(finishClose,matchMedia('(prefers-reduced-motion:reduce)').matches?0:850);
 }
 function openCard(source,message){
-  if(activeCard)return;
-  const overflow=document.documentElement.style.overflow;
-  document.documentElement.style.overflow='hidden';
-  const rect=source.getBoundingClientRect();
-  const floating=source.cloneNode(true);
-  floating.style.setProperty('--reading-unit',(rect.width/310)+'px');
-  floating.classList.remove('flipped');
-  Object.assign(floating.style,{left:rect.left+'px',top:rect.top+'px',width:rect.width+'px',height:rect.height+'px',transform:'translate(0px,0px) scale(1)'});
-  floating.setAttribute('aria-label',message.title+'. '+message.text.replaceAll('\n',' ')+' 다시 누르면 원래 자리로 돌아갑니다.');
-  floating.setAttribute('aria-pressed','true');
-  floating.querySelector('.front').setAttribute('aria-hidden','false');
-  floating.addEventListener('click',closeCard);
-  spotlight.append(floating);
-  activeCard={source,floating,overflow,closing:false,timer:null};
-  source.style.visibility='hidden';
-  source.setAttribute('aria-pressed','true');
-  spotlight.showModal();
-  floating.focus({preventScroll:true});
-  const viewport=window.visualViewport;
-  const width=viewport?viewport.width:window.innerWidth;
-  const height=viewport?viewport.height:window.innerHeight;
-  const left=viewport?viewport.offsetLeft:0;
-  const top=viewport?viewport.offsetTop:0;
-  const scale=Math.min(310/rect.width,(width-48)/rect.width,(height-80)/rect.height);
-  const dx=left+width/2-(rect.left+rect.width/2);
-  const dy=top+height/2-(rect.top+rect.height/2);
-  floating.getBoundingClientRect();
-  requestAnimationFrame(()=>{
-    if(!activeCard||activeCard.closing)return;
-    floating.style.transform='translate('+dx+'px,'+dy+'px) scale('+scale+')';
-    floating.classList.add('flipped');
-  });
-  status.textContent='당신이 고른 문장 · '+message.title+' — 다시 누르면 원래 자리로 돌아가요.';
+ if(activeCard)return;
+ const overflow=document.documentElement.style.overflow;
+ document.documentElement.style.overflow='hidden';
+ const rect=source.getBoundingClientRect();
+ const viewport=window.visualViewport;
+ const width=viewport?viewport.width:innerWidth;
+ const height=viewport?viewport.height:innerHeight;
+ const offsetX=viewport?viewport.offsetLeft:0,offsetY=viewport?viewport.offsetTop:0;
+ const targetWidth=Math.min(message.letter?430:310,width-32);
+ const targetHeight=Math.min(message.letter?720:targetWidth/.68,height-40);
+ const floating=source.cloneNode(true);
+ const restTransform='translate(0px,0px) scale('+rect.width/targetWidth+','+rect.height/targetHeight+')';
+ Object.assign(floating.style,{left:rect.left+'px',top:rect.top+'px',width:targetWidth+'px',height:targetHeight+'px',transform:restTransform});
+ floating.style.setProperty('--reading-unit','1px');
+ floating.setAttribute('aria-label',message.title+' · 다시 누르면 원래 자리로 돌아갑니다.');
+ floating.setAttribute('aria-pressed','true');
+ floating.querySelector('.front').setAttribute('aria-hidden','false');
+ const reading=floating.querySelector('.message');
+ if(message.letter){reading.tabIndex=0;reading.setAttribute('role','region');reading.setAttribute('aria-label','생일 편지 전문 · 스크롤해서 읽기');reading.addEventListener('keydown',event=>event.stopPropagation())}
+ let pointerStart=null;
+ floating.addEventListener('pointerdown',event=>{pointerStart={x:event.clientX,y:event.clientY,scroll:reading.scrollTop}});
+ floating.addEventListener('click',event=>{
+  if(window.getSelection().toString())return;
+  if(pointerStart&&(Math.abs(event.clientX-pointerStart.x)>8||Math.abs(event.clientY-pointerStart.y)>8||Math.abs(reading.scrollTop-pointerStart.scroll)>3))return;
+  closeCard();
+ });
+ spotlight.append(floating);
+ activeCard={source,floating,overflow,restTransform,closing:false,timer:null};
+ source.style.visibility='hidden';source.setAttribute('aria-pressed','true');
+ spotlight.showModal();floating.focus({preventScroll:true});
+ const dx=offsetX+(width-targetWidth)/2-rect.left;
+ const dy=offsetY+(height-targetHeight)/2-rect.top;
+ floating.getBoundingClientRect();
+ requestAnimationFrame(()=>{if(!activeCard||activeCard.closing)return;floating.style.transform='translate('+dx+'px,'+dy+'px) scale(1)';floating.classList.add('flipped')});
+ status.textContent='당신이 고른 문장 · '+message.title+' — 다시 누르면 원래 자리로 돌아가요.';
 }
 spotlight.addEventListener('cancel',event=>{event.preventDefault();closeCard()});
 spotlight.addEventListener('click',event=>{if(event.target===spotlight)closeCard()});
 window.addEventListener('resize',finishClose);
 
 function buildCard(message,i,container,fixed=false){
-const wrap=document.createElement('div');wrap.className='card-wrap';
-const card=document.createElement('button');card.type='button';card.className='card';
-card.setAttribute('aria-label',(fixed?'고정 ':'랜덤 ')+(i+1)+'번째 카드 뒤집기');card.setAttribute('aria-pressed','false');
-card.innerHTML='<span class="inner"><span class="face back">'+ornament+'</span><span class="face front" aria-hidden="true"><span class="symbol">'+message.symbol+'</span><span class="english">'+message.en+'</span><h2>'+message.title+'</h2><span class="message">'+message.text.replaceAll('\n','<br>')+'</span><span class="tiny">✦</span></span></span>';
-card.addEventListener('click',()=>openCard(card,message));
-const number=document.createElement('span');number.className='number';number.textContent=fixed?['I','II','III'][i]:String(i+1).padStart(2,'0');
-wrap.append(card,number);container.append(wrap);
+ const wrap=document.createElement('div');wrap.className='card-wrap';
+ const card=document.createElement('button');card.type='button';card.className='card'+(fixed?' letter-card':'');
+ card.setAttribute('aria-label',(fixed?'고정 ':'랜덤 ')+(i+1)+'번째 카드 뒤집기');card.setAttribute('aria-pressed','false');
+ card.innerHTML='<span class="inner"><span class="face back photo"><img alt="" loading="'+(fixed?'eager':'lazy')+'" decoding="async"></span><span class="face front'+(message.letter?' letter-front':'')+'" aria-hidden="true"><span class="english"></span><h2></h2><span class="message"></span><span class="tiny">✦</span><span class="reading-hint"></span></span></span>';
+ card.querySelector('img').src=message.image;
+ card.querySelector('.english').textContent=message.en;
+ card.querySelector('h2').textContent=message.title;
+ card.querySelector('.message').textContent=message.text;
+ card.querySelector('.reading-hint').textContent=message.letter?'스크롤해서 읽기 · 다시 누르면 돌아가요':'';
+ card.addEventListener('click',()=>openCard(card,message));
+ const number=document.createElement('span');number.className='number';number.textContent=fixed?['I','II','III'][i]:String(i+1).padStart(2,'0');
+ wrap.append(card,number);container.append(wrap);
 }
-function deal(){deck.replaceChildren();shuffle(messages.slice(3)).slice(0,16).forEach((message,i)=>buildCard(message,i,deck))}
-messages.slice(0,3).forEach((message,i)=>buildCard(message,i,document.getElementById('fixed-cards'),true));
+function deal(){
+ deck.replaceChildren();let images=shuffle(memoryImages);while(images.length<16)images.push(...shuffle(memoryImages));
+ shuffle(messages.slice(3)).slice(0,16).forEach((message,i)=>buildCard({...message,image:images[i]},i,deck));
+}
+fixedCards.forEach((message,i)=>buildCard(message,i,document.getElementById('fixed-cards'),true));
 document.getElementById('shuffle').addEventListener('click',()=>{deal();status.textContent='카드를 새로 섞었어요. 다시 마음이 가는 한 장을 골라보세요.'});deal();
 </script>
 </body>
